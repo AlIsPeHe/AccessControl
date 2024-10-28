@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref} % Add this package
+
+\title{Customer Requirements Document}
+\author{Open Source Access Control}
+\date{\today}
+
+% Define counters for requirements
+\newcounter{functional}
+\newcounter{nonfunctional}
+
+% Command to set the initial value of the counters
+\newcommand{\setinitialvalues}[2]{%
+    \setcounter{functional}{#1}%
+    \setcounter{nonfunctional}{#2}%
+}
+
+% Command to increment and display functional requirements
+\newcommand{\functionalreq}[2]{%
+    \refstepcounter{functional}%
+    \thefunctional. \label{#1} #2%
+}
+
+% Command to increment and display non-functional requirements
+\newcommand{\nonfunctionalreq}[2]{%
+    \refstepcounter{nonfunctional}%
+    \thenonfunctional. \label{#1} #2%
+}
+
+\begin{document}
+
+\maketitle
+
+% Set initial values for the counters (example: start from 1000 for functional and 25000 for non-functional)
+\setinitialvalues{1000}{25000}
+
+\section*{Introduction}
+\begin{itemize}
+    \item \textbf{Project Name:} [Project Name]
+    \item \textbf{Client:} [Client Name]
+    \item \textbf{Date:} \today
+\end{itemize}
+
+\section*{Purpose}
+\begin{itemize}
+    \item Describe the purpose of this document and the project.
+\end{itemize}
+
+\section*{Scope}
+\begin{itemize}
+    \item Define the scope of the project.
+\end{itemize}
+
+\section*{Requirements}
+\subsection*{Functional Requirements}
+\functionalreq{FR1}{Requirement 1}\\
+\functionalreq{FR2}{Requirement 2 (see Requirement \hyperref[NFR1]{\ref*{NFR1}})}\\
+\functionalreq{FR3}{Requirement 3}\\
+
+\subsection*{Non-Functional Requirements}
+\nonfunctionalreq{NFR1}{Requirement 1}\\
+\nonfunctionalreq{NFR2}{Requirement 2 (related to Requirement \hyperref[FR2]{\ref*{FR2}})}\\
+\nonfunctionalreq{NFR3}{Requirement 3}\\
+
+\section*{Assumptions}
+\begin{itemize}
+    \item List any assumptions made during the requirements gathering.
+\end{itemize}
+
+\section*{Constraints}
+\begin{itemize}
+    \item List any constraints that affect the project.
+\end{itemize}
+
+\section*{Acceptance Criteria}
+\begin{itemize}
+    \item Define the criteria for accepting the project deliverables.
+\end{itemize}
+
+\section*{Appendix}
+\begin{itemize}
+    \item Include any additional information or references.
+\end{itemize}
+
+\end{document}
